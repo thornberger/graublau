@@ -1,7 +1,9 @@
+import {inject} from "inversify";
 import {provide} from "inversify-binding-decorators";
 import moment from "moment";
 // tslint:disable-next-line:max-line-length
 import {createLogger, format, Logger as WinstonLogger, LoggerOptions as WinstonLoggerOptions, transports} from "winston";
+import {TYPES} from "../setup/Types";
 import {LogFormat} from "./LogFormat";
 import {LoggerOptions} from "./LoggerOptions";
 import {LogLevel} from "./LogLevel";
@@ -16,7 +18,7 @@ export class Logger {
 
     private winstonLogger: WinstonLogger;
 
-    constructor(options: LoggerOptions) {
+    constructor(@inject(TYPES.LoggerOptions) options: LoggerOptions) {
         this.debug = this.debug.bind(this);
         this.info = this.info.bind(this);
         this.warn = this.warn.bind(this);
