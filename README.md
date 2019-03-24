@@ -79,8 +79,7 @@ It is required to have `port` setting to set up the application port.
 {
   "application": {
     "port": 5000
-  },
-  ...
+  }
 }
 ```
 Additionally it can also be used to customize graublau's included logger (see below).
@@ -130,7 +129,6 @@ graublau also provides a logger that on one hand hides away some of `winston`'s 
 
 You can automatically use the logger using dependency injection. Per default, it will log plain text to the standard output. If you specify a `logger` section in your config file you can customize this behavior.
 ````json
-...
 "logger": {
       "minLogLevel": "info",
       "format": "plain",
@@ -147,5 +145,5 @@ Each of these methods takes two arguments:
 * The second argument is used for specifying the log context and can be any object (including Errors).
 
 
-## Background.
+## Background
 graublau is a framework I created extracting some common classes and structures I used in a couple of applications.
