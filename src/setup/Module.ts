@@ -10,6 +10,8 @@ import {TYPES} from "./Types";
 
 export abstract class Module {
 
+    public static readonly Types = TYPES;
+
     private readonly container: Container;
 
     // noinspection TypeScriptAbstractClassConstructorCanBeMadeProtected
@@ -29,14 +31,14 @@ export abstract class Module {
     protected abstract getConfigPath(): string;
 
     private bindBaseDependencies(): void {
-        this.container.bind<ProcessEnv>(TYPES.ProcessEnv).toConstantValue(process.env);
-        this.container.bind<string>(TYPES.configPath).toConstantValue(this.getConfigPath());
-        this.container.bind(TYPES.FileSystem).toConstantValue(FileSystem);
-        this.container.bind(TYPES.Express).toConstantValue(express);
-        this.container.bind(TYPES.ExpressApplication).toConstantValue(express());
+        this.container.bind<ProcessEnv>(Module.Types.ProcessEnv).toConstantValue(process.env);
+        this.container.bind<string>(Module.Types.configPath).toConstantValue(this.getConfigPath());
+        this.container.bind(Module.Types.FileSystem).toConstantValue(FileSystem);
+        this.container.bind(Module.Types.Express).toConstantValue(express);
+        this.container.bind(Module.Types.ExpressApplication).toConstantValue(express());
 
         const applicationOptions: ApplicationOptions = this.container.get(ApplicationOptionsFactory).create();
-        this.container.bind(TYPES.ApplicationOptions).toConstantValue(applicationOptions);
+        this.container.bind(Module.Types.ApplicationOptions).toConstantValue(applicationOptions);
 
         const logger: Logger = this.container.get(LoggerFactory).create();
         this.container.bind(Logger).toConstantValue(logger);
