@@ -2,7 +2,7 @@
   "name": "graublau",
   "description": "A typescript framework for building REST applications.",
   "author": "Tobias Hornberger",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "license": "MIT",
   "files": [
     "/dist"
