@@ -18,7 +18,6 @@ This section will guide you through the creation of a graublau application. As a
 ### Create REST resource
 We start by setting up our REST resources. For now we will only use one, the customer resource.
 ```typescript
-...
 import {Module} from "graublau";
 import {ResourceInterface} from "graublau";
 import {inject} from "inversify";
@@ -54,9 +53,9 @@ The class is annotated with `@provide(CustomerResource)`, using inversify's bind
 The module is responsible for all dependency injection bindings that are not convered by `@provide`. It also provides the path to the service config file.
 
 ```typescript
-import {TYPES} from "@application/Types";
+import {TYPES} from "./Types";
 import {MongoDBStorage} from "./MongoDBStorage";
-import {StorageInterface} from "@storage/StorageInterface";
+import {StorageInterface} from "./StorageInterface";
 import {Module} from "graublau";
 import {Container} from "inversify";
 
