@@ -36,6 +36,7 @@
     "@types/jest": "^24.0.11",
     "@types/node": "^11.11.6",
     "codecov": "^3.2.0",
+    "conventional-github-releaser": "^3.1.2",
     "husky": "^1.3.1",
     "jest": "^24.3.1",
     "nodemon": "^1.18.10",
@@ -83,6 +84,6 @@
     "build": "tsc",
     "test": "jest",
     "coverage": "jest --coverage",
-    "release": "yarn test && yarn build && standard-version && yarn publish"
+    "release": "yarn test && yarn build && standard-version && yarn publish && conventional-github-releaser -p angular"
   }
 }
