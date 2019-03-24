@@ -38,10 +38,10 @@ export abstract class Module {
         this.container.bind(Module.Types.ExpressApplication).toConstantValue(express());
 
         const applicationOptions: ApplicationOptions = this.container.get(ApplicationOptionsFactory).create();
-        this.container.bind(Module.Types.ApplicationOptions).toConstantValue(applicationOptions);
+        this.container.bind<ApplicationOptions>(Module.Types.ApplicationOptions).toConstantValue(applicationOptions);
 
         const logger: Logger = this.container.get(LoggerFactory).create();
-        this.container.bind(Module.Types.Logger).toConstantValue(logger);
+        this.container.bind<Logger>(Module.Types.Logger).toConstantValue(logger);
     }
 
 }
