@@ -4,6 +4,7 @@ import FileSystem from "fs";
 import {Container} from "inversify";
 import {Config} from "..";
 import {ApplicationOptions} from "../application/ApplicationOptions";
+import {LoggerOptions} from "../logger/LoggerOptions";
 import {TYPES} from "./Types";
 
 export abstract class Module {
@@ -35,14 +36,16 @@ export abstract class Module {
 
         const applicationOptions: ApplicationOptions = this.createApplicationOptions();
         this.container.bind<ApplicationOptions>(Module.Types.ApplicationOptions).toConstantValue(applicationOptions);
+
+        const loggerOptions: LoggerOptions = applicationOptions.logger || {};
+        this.container.bind<LoggerOptions>(Module.Types.LoggerOptions).toConstantValue(loggerOptions);
     }
 
     private createApplicationOptions(): ApplicationOptions {
         const config = this.container.get(Config);
         return {
             port: config.getValue(["application", "port"]),
-            logger: config.getValue(["application", "logger"]),
+            logger: config.getValue(["application", "logger"], false),
         };
     }
-
 }
