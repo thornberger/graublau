@@ -2,19 +2,15 @@ import ProcessEnv = NodeJS.ProcessEnv;
 import express from "express";
 import FileSystem from "fs";
 import {Container} from "inversify";
-import {Logger} from "..";
+import {Config} from "..";
 import {ApplicationOptions} from "../application/ApplicationOptions";
-import {ApplicationOptionsFactory} from "./factories/ApplicationOptionsFactory";
-import {LoggerFactory} from "./factories/LoggerFactory";
 import {TYPES} from "./Types";
 
 export abstract class Module {
 
     public static readonly Types = TYPES;
-
     private readonly container: Container;
 
-    // noinspection TypeScriptAbstractClassConstructorCanBeMadeProtected
     public constructor() {
         this.container = new Container({autoBindInjectable: true});
 
@@ -37,11 +33,16 @@ export abstract class Module {
         this.container.bind(Module.Types.Express).toConstantValue(express);
         this.container.bind(Module.Types.ExpressApplication).toConstantValue(express());
 
-        const applicationOptions: ApplicationOptions = this.container.get(ApplicationOptionsFactory).create();
+        const applicationOptions: ApplicationOptions = this.createApplicationOptions();
         this.container.bind<ApplicationOptions>(Module.Types.ApplicationOptions).toConstantValue(applicationOptions);
+    }
 
-        const logger: Logger = this.container.get(LoggerFactory).create();
-        this.container.bind<Logger>(Module.Types.Logger).toConstantValue(logger);
+    private createApplicationOptions(): ApplicationOptions {
+        const config = this.container.get(Config);
+        return {
+            port: config.getValue(["application", "port"]),
+            logger: config.getValue(["application", "logger"]),
+        };
     }
 
 }

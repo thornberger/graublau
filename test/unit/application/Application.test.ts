@@ -5,6 +5,7 @@ import {Application} from "../../../src";
 import {ResourceInterface} from "../../../src";
 import {Logger} from "../../../src";
 import {ApplicationOptions} from "../../../src/application/ApplicationOptions";
+import {LogFormat} from "../../../src/logger/LogFormat";
 
 describe("Application", () => {
     const RESOURCE_NAME = "foo";
@@ -12,7 +13,7 @@ describe("Application", () => {
     const OPTIONS: ApplicationOptions = {
         port: 1234,
         logger: {
-            format: "plain",
+            format: LogFormat.plain,
         },
     };
 
