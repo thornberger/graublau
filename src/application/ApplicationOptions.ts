@@ -1,10 +1,6 @@
-import {LogLevel} from "../logger/LogLevel";
+import {LoggerOptions} from "../logger/LoggerOptions";
 
 export interface ApplicationOptions {
     port: number;
-    logger?: {
-        format?: "plain" | "json",
-        minLogLevel?: LogLevel,
-        output?: string,
-    };
+    logger?: LoggerOptions;
 }
