@@ -1,5 +1,7 @@
-[![Build Status](https://travis-ci.org/thornberger/graublau.svg?branch=master)](https://travis-ci.org/thornberger/graublau)
-[![codecov](https://codecov.io/gh/thornberger/graublau/branch/master/graph/badge.svg)](https://codecov.io/gh/thornberger/graublau) [![Greenkeeper badge](https://badges.greenkeeper.io/thornberger/graublau.svg)](https://greenkeeper.io/)
+[![Travis](https://travis-ci.org/thornberger/graublau.svg?branch=master)](https://travis-ci.org/thornberger/graublau)
+[![Codecov](https://codecov.io/gh/thornberger/graublau/branch/master/graph/badge.svg)](https://codecov.io/gh/thornberger/graublau)
+[![Greenkeeper](https://badges.greenkeeper.io/thornberger/graublau.svg)](https://greenkeeper.io/)
+[![NPM](https://img.shields.io/npm/v/graublau.svg)](https://www.npmjs.com/package/graublau)
 # graublau
 A simple typescript framework for creating REST applications, build on top of [express](https://expressjs.com), [inversify](https://github.com/inversify/InversifyJS), and [winston](https://github.com/winstonjs/winston).
 
