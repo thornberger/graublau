@@ -3,7 +3,7 @@
   "description": "A simple typescript framework for creating REST applications.",
   "author": "Tobias Hornberger",
   "repository": "https://github.com/thornberger/graublau.git",
-  "version": "0.1.7",
+  "version": "0.2.0",
   "license": "MIT",
   "keywords": [
     "rest",
