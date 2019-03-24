@@ -4,7 +4,8 @@ import express from "express";
 import Helmet from "helmet";
 import {inject} from "inversify";
 import {provide} from "inversify-binding-decorators";
-import {Logger} from "..";
+// noinspection TypeScriptPreferShortImport
+import {Logger} from "../logger/Logger";
 import {TYPES} from "../setup/Types";
 import {ApplicationOptions} from "./ApplicationOptions";
 import {ResourceInterface} from "./ResourceInterface";
