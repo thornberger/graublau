@@ -1,0 +1,8 @@
+{
+  "application": {
+    "port": 1234,
+    "logger": {
+      "format": "plain"
+    }
+  }
+}

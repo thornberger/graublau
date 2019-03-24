@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "lib": ["esnext", "es2017", "es6", "es7"],
+    "moduleResolution": "node",
+    "declaration": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "outDir": "dist",
+    "strict": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
