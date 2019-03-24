@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/thornberger/graublau.svg?branch=master)](https://travis-ci.org/thornberger/graublau)
 # graublau
 A simple typescript framework for creating REST applications, build on top of [express](https://expressjs.com), [inversify](https://github.com/inversify/InversifyJS), and [winston](https://github.com/winstonjs/winston).
 
