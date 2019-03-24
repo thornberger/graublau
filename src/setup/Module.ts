@@ -41,7 +41,7 @@ export abstract class Module {
         this.container.bind(Module.Types.ApplicationOptions).toConstantValue(applicationOptions);
 
         const logger: Logger = this.container.get(LoggerFactory).create();
-        this.container.bind(Logger).toConstantValue(logger);
+        this.container.bind(Module.Types.Logger).toConstantValue(logger);
     }
 
 }

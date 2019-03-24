@@ -17,7 +17,7 @@ export class Application {
 
     constructor(@inject(TYPES.ExpressApplication) expressApplication: express.Application,
                 @inject(TYPES.ApplicationOptions) options: ApplicationOptions,
-                logger: Logger) {
+                @inject(TYPES.Logger) logger: Logger) {
         this.expressApplication = expressApplication;
         this.options = options;
         this.logger = logger;
