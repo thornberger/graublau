@@ -17,7 +17,3 @@ All notable changes to this project will be documented in this file. See [standa
 ### Bug Fixes
 
 * Added missing type symbol for logger options. ([8e47cfd](https://github.com/thornberger/graublau/commit/8e47cfd))
-
-
-
-# Change Log

@@ -2,8 +2,17 @@
   "name": "graublau",
   "description": "A typescript framework for building REST applications.",
   "author": "Tobias Hornberger",
+  "repository": "https://github.com/thornberger/graublau.git",
   "version": "0.1.7",
   "license": "MIT",
+  "keywords": [
+    "rest",
+    "framework",
+    "typescript",
+    "express",
+    "nodejs",
+    "inversify"
+  ],
   "files": [
     "/dist"
   ],
