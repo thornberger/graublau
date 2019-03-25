@@ -10,9 +10,11 @@ import {TYPES} from "./Types";
 export abstract class Module {
 
     public static readonly Types = TYPES;
+    private configPath: string;
     private readonly container: Container;
 
-    public constructor() {
+    public constructor(configPath: string) {
+        this.configPath = configPath;
         this.container = new Container({autoBindInjectable: true});
 
         this.bindBaseDependencies();
@@ -25,11 +27,9 @@ export abstract class Module {
 
     protected abstract bind(container: Container): void;
 
-    protected abstract getConfigPath(): string;
-
     private bindBaseDependencies(): void {
         this.container.bind<ProcessEnv>(Module.Types.ProcessEnv).toConstantValue(process.env);
-        this.container.bind<string>(Module.Types.configPath).toConstantValue(this.getConfigPath());
+        this.container.bind<string>(Module.Types.configPath).toConstantValue(this.configPath);
         this.container.bind(Module.Types.FileSystem).toConstantValue(FileSystem);
         this.container.bind(Module.Types.Express).toConstantValue(express);
         this.container.bind(Module.Types.ExpressApplication).toConstantValue(express());

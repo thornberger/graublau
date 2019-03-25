@@ -1,6 +1,6 @@
 {
   "name": "graublau",
-  "description": "A simple typescript framework for creating REST applications.",
+  "description": "An object-oriented typescript framework for creating REST applications.",
   "repository": "https://github.com/thornberger/graublau.git",
   "author": "Tobias Hornberger <tobias.hornberger@falsemirror.de>",
   "version": "0.2.0",
@@ -76,7 +76,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "coverage": "jest --coverage ----collectCoverageFrom=src/**/*.ts",
+    "coverage": "jest --coverage --collectCoverageFrom=src/**/*.ts",
     "release": "yarn test && yarn build && standard-version && yarn publish && conventional-github-releaser -p angular"
   }
 }

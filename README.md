@@ -3,7 +3,7 @@
 [![Greenkeeper](https://badges.greenkeeper.io/thornberger/graublau.svg)](https://greenkeeper.io/)
 [![NPM](https://img.shields.io/npm/v/graublau.svg)](https://www.npmjs.com/package/graublau)
 # graublau
-A simple typescript framework for creating REST applications, build on top of [express](https://expressjs.com), [inversify](https://github.com/inversify/InversifyJS), and [winston](https://github.com/winstonjs/winston).
+An object-oriented typescript framework for creating REST applications, build on top of [express](https://expressjs.com), [inversify](https://github.com/inversify/InversifyJS), and [winston](https://github.com/winstonjs/winston).
 
 ## Installation
 via npm:
@@ -61,10 +61,6 @@ import {Container} from "inversify";
 
 export class CustomerServiceModule extends Module {
 
-    protected getConfigPath(): string {
-        return "/path/to/config.json";
-    }
-
     protected bind(container: Container): void {
         const storage: StorageInterface = container.get(MongoDBStorage);
         container.bind(TYPES.Storage).toConstantValue(storage);
@@ -97,13 +93,13 @@ import {Application} from "graublau";
 
 export class CustomerService {
 
-    protected module: CustomerServiceModule;
+    private module: CustomerServiceModule;
 
-    public constructor() {
-        this.module = new CustomerServiceModule();
+    public constructor(module: CustomerServiceModule) {
+        this.module = module;
     }
 
-    protected execute(): void {
+    public run(): void {
         const application: Application = this.module.getContainer().get(Application);
 
         application.addResource("customers", this.module.getContainer().get(CustomerResource));
@@ -111,17 +107,18 @@ export class CustomerService {
     }
 }
 ```
-The service class first needs to instantiate the `CustomerServiceModule` to inject all dependencies. It then loads the graublau `Application` using the Module's container.
+The service consumes the `CustomerServiceModule` and uses it to load all required dependencies. It then loads the graublau `Application` using the Module's container.
 All resources have to be registered with `addResource(name: string, resource: ResourceInterface)`. We set the name to `customers` so when we start the service, we can call `GET /customers` to call the method defined in our resource.
 
 ### index.ts file
-All that is left to do is run the application in our index.ts file.
+All that is left to do is instantiate both module and service, and run the application in our index.ts file.
 
 ````typescript
 import "reflect-metadata";
 import {CustomerService} from "CustomerService";
 
-const service = new CustomerService();
+const module = new CustomerServiceModule("/path/to/config");
+const service = new CustomerService(module);
 service.run();
 ````
 We also use this file to load the `reflect-metadata` module for inversify.
