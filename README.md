@@ -15,7 +15,7 @@ via yarn:
 ## Usage
 This section will guide you through the creation of a graublau application. As an example we will build a simple service that returns some customer information. We will call our application `CustomerService`.
 
-### Create REST resource
+### Creating a REST resource
 We start by setting up our REST resources. For now we will only use one, the customer resource.
 ```typescript
 import {Module} from "graublau";
@@ -72,8 +72,9 @@ export class CustomerServiceModule extends Module {
 }
 
 ```
+The `bind()` can be used for setting up DIC bindings using inversify's container class. In this example we bind the concrete implementation of `MongoDBStorage` to the `StorageInterface`. All classes depending on the interface will hence get the instance of `MongoDBStorage`.
 
-### Service config file
+### Initializing the config file
 The service config file is a JSON file that holds basic information for a graublau application, as well as all the values you need for your business logic.
 It is required to have `port` setting to set up the application port.
 ```json
