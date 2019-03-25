@@ -1,8 +1,8 @@
 {
   "name": "graublau",
   "description": "A simple typescript framework for creating REST applications.",
-  "author": "Tobias Hornberger",
   "repository": "https://github.com/thornberger/graublau.git",
+  "author": "Tobias Hornberger <tobias.hornberger@falsemirror.de>",
   "version": "0.2.0",
   "license": "MIT",
   "keywords": [
