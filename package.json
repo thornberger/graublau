@@ -66,14 +66,7 @@
     },
     "testEnvironment": "node",
     "testRegex": "/test/.*\\.test\\.ts$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    "moduleFileExtensions": ["ts", "js"]
   },
   "husky": {
     "hooks": {
@@ -83,7 +76,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "coverage": "jest --coverage",
+    "coverage": "jest --coverage ----collectCoverageFrom=src/**/*.ts",
     "release": "yarn test && yarn build && standard-version && yarn publish && conventional-github-releaser -p angular"
   }
 }
