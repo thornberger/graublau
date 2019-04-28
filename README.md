@@ -3,7 +3,7 @@
 [![Greenkeeper](https://badges.greenkeeper.io/thornberger/graublau.svg)](https://greenkeeper.io/)
 [![NPM](https://img.shields.io/npm/v/graublau.svg)](https://www.npmjs.com/package/graublau)
 # graublau
-An object-oriented typescript framework for creating REST applications, build on top of [express](https://expressjs.com), [inversify](https://github.com/inversify/InversifyJS), and [winston](https://github.com/winstonjs/winston).
+An object-oriented, loosely-coupled, typescript framework for creating REST applications, build on top of [express](https://expressjs.com), [inversify](https://github.com/inversify/InversifyJS), and [winston](https://github.com/winstonjs/winston).
 
 ## Installation
 via npm:
@@ -143,6 +143,22 @@ Each of these methods takes two arguments:
 * The first argument is either a string, or an `Error` object.
 * The second argument is used for specifying the log context and can be any object (including Errors).
 
+## Dependency Injection
+graublau uses the [inversify](https://github.com/inversify/InversifyJS) dependency injection framework. It is totally possible to build a graublau application without any dependency injection support if you don't have any need for that.
+
+When creating a `Module` the framework internally sets up all required bindings. Most of these bindings are only relevant to the graublau framework itself, but you can re-use them if necessary.
+
+The following symbols are pre-bound and are exposed through `Module.Types`:
+ 
+| Symbol      | Bound To |
+| ----------- | ----------- |
+| `configPath`      | config path       |
+| `ApplicationOptions`   | internal application options        |
+| `LoggerOptions`   | internal logger options        |
+| `Express`   | express module        |
+| `ExpressApplication`   | instance of express application        |
+| `FileSystem`   | "fs" module        |
+| `ProcessEnv`   | process.env        |
 
 ## Background
 graublau is a framework I created extracting some common classes and structures I used in a couple of applications.

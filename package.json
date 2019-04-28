@@ -1,6 +1,6 @@
 {
   "name": "graublau",
-  "description": "An object-oriented typescript framework for creating REST applications.",
+  "description": "An object-oriented, loosely-coupled, typescript framework for creating REST applications.",
   "repository": "https://github.com/thornberger/graublau.git",
   "author": "Tobias Hornberger <tobias.hornberger@falsemirror.de>",
   "version": "0.3.3",
