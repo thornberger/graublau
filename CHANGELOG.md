@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.8](https://github.com/thornberger/graublau/compare/v0.3.7...v0.3.8) (2019-06-21)
+
+
+
 ### [0.3.6](https://github.com/thornberger/graublau/compare/v0.3.5...v0.3.6) (2019-06-13)
 
 
