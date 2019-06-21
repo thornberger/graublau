@@ -3,7 +3,7 @@
   "description": "An object-oriented, loosely-coupled, typescript framework for creating REST applications.",
   "repository": "https://github.com/thornberger/graublau.git",
   "author": "Tobias Hornberger <tobias.hornberger@falsemirror.de>",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "license": "MIT",
   "keywords": [
     "rest",
