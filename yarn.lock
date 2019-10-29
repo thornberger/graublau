@@ -371,10 +371,10 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
-"@types/helmet@0.0.43":
-  version "0.0.43"
-  resolved "https://registry.yarnpkg.com/@types/helmet/-/helmet-0.0.43.tgz#2a3f7da435088501f2901f68c3e402f79e5b2a9b"
-  integrity sha512-45cU1ZW3L6ZxPQzAB597nl7OfUr14ceUWaQRoiByGFAjZlCQRvaEFC4Vv84lLWsFCYVWLU+raz+bIHrVBNTdRw==
+"@types/helmet@0.0.45":
+  version "0.0.45"
+  resolved "https://registry.yarnpkg.com/@types/helmet/-/helmet-0.0.45.tgz#3eab6550a4e19acf86012596a7f1981529480fd5"
+  integrity sha512-PsLZI1NqKpXvsMZxh66xAZtpKiTeW+swY8a8LnCNSBbM/mvwU41P3BYoEqkJM9RbITPsq4uhIH0NkIsL9fzPbg==
   dependencies:
     "@types/express" "*"
 
