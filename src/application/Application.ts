@@ -4,7 +4,7 @@ import express from "express";
 import Helmet from "helmet";
 import {inject} from "inversify";
 import {provide} from "inversify-binding-decorators";
-// noinspection TypeScriptPreferShortImport
+// noinspection TypeScriptPreferShortImport,ES6PreferShortImport
 import {Logger} from "../logger/Logger";
 import {TYPES} from "../setup/Types";
 import {ApplicationOptions} from "./ApplicationOptions";
@@ -33,12 +33,8 @@ export class Application {
     public start(): void {
         const port = this.options.port;
 
-        this.expressApplication.listen(port, (error: Error) => {
-            if (error) {
-                this.logger.error(error);
-            } else {
-                this.logger.info(`Started server at http://localhost:${port}`);
-            }
+        this.expressApplication.listen(port, () => {
+            this.logger.info(`Started server at http://localhost:${port}`);
         });
     }
 

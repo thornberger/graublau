@@ -2,7 +2,13 @@ import {inject} from "inversify";
 import {provide} from "inversify-binding-decorators";
 import moment from "moment";
 // tslint:disable-next-line:max-line-length
-import {createLogger, format, Logger as WinstonLogger, LoggerOptions as WinstonLoggerOptions, transports} from "winston";
+import {
+    createLogger,
+    format,
+    Logger as WinstonLogger,
+    LoggerOptions as WinstonLoggerOptions,
+    transports
+} from "winston";
 import {TYPES} from "../setup/Types";
 import {LogFormat} from "./LogFormat";
 import {LoggerOptions} from "./LoggerOptions";
@@ -124,7 +130,6 @@ export class Logger {
         let timestamp: string = info.timestamp;
         let level: string = info.level;
         const message: string = info.message;
-        const context: string | undefined = info.context;
         const mainColor = this.getColorForLevel(level);
 
         timestamp = "[" + timestamp + "]";
@@ -133,13 +138,11 @@ export class Logger {
 
         let output = `${timestamp} ${level} ${message}`;
 
-        if (context) {
-            Object.keys(info.context).forEach((key) => {
-                const value = (info.context as any)[key];
+        Object.keys(info.context).forEach((key) => {
+            const value = (info.context as any)[key];
 
-                output += `\n\t${key}: ${value}`;
-            });
-        }
+            output += `\n\t${key}: ${value}`;
+        });
 
         return output;
     }

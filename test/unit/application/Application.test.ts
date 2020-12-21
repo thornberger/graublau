@@ -9,7 +9,6 @@ import {LogFormat} from "../../../src/logger/LogFormat";
 
 describe("Application", () => {
     const RESOURCE_NAME = "foo";
-    const ERROR_MESSAGE = "I'm out of tea!";
     const OPTIONS: ApplicationOptions = {
         port: 1234,
         logger: {
@@ -48,19 +47,7 @@ describe("Application", () => {
         expect(expressApplication.use as jest.Mock).toHaveBeenCalledWith("/" + RESOURCE_NAME, router);
     });
 
-    it("starts without error", () => {
-        const error = new Error(ERROR_MESSAGE);
-        // @ts-ignore
-        expressApplication.listen = jest.fn().mockImplementation((port: number, callback: (error: Error) => {}) => {
-            callback(error);
-        });
-
-        application.start();
-
-        expect(logger.error as jest.Mock).toHaveBeenCalledWith(error);
-    });
-
-    it("starts with error", () => {
+    it("starts", () => {
         expressApplication.listen = jest.fn()
             // @ts-ignore
             .mockImplementation((port: number, callback: (error: Error | undefined) => {}) => {

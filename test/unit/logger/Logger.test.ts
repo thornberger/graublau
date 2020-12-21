@@ -1,7 +1,6 @@
-import "reflect-metadata";
-// tslint:disable-next-line:ordered-imports
 import fs from "fs";
 import moment from "moment";
+import "reflect-metadata";
 import {Logger} from "../../../src";
 import {LogFormat} from "../../../src/logger/LogFormat";
 import {LoggerOptions} from "../../../src/logger/LoggerOptions";
@@ -137,6 +136,15 @@ describe("Logger", () => {
 
         await expectOutputOnStdout();
         await expectPlainOutput();
+    });
+
+    it("creates a plain logger without context", async () => {
+        options.format = LogFormat.plain;
+        logger = new Logger(options as LoggerOptions);
+
+        logger.debug(FIXTURE_MESSAGE);
+
+        await expectContext({});
     });
 
     it("creates a plain logger, ignoring messages lower min log level", async () => {
